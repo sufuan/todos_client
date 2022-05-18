@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
-import googlelogo from '../../assets/google.png'
 
 
 const LOgin = () => {
@@ -226,33 +225,12 @@ const LOgin = () => {
                     className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                   >
                     <span className="sr-only">Sign in with Google</span>
-                    <img className='w-50 h-5' src={googlelogo} alt="" />
+                    <h1>Google</h1>
                   </button>
                 </div>
 
 
-                {/* facebook login  */}
-                <div>
-                  <button disabled
-
-                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                  >
-                    <span className="sr-only">Sign in with facebook</span>
-                    <h1>facebook</h1>
-                  </button>
-                </div>
-
-                {/* Gitbub login */}
-
-                <div>
-                  <button disabled
-
-                    className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-                  >
-                    <span className="sr-only">Sign in with GitHub</span>
-                    <h1>Gitbub</h1>
-                  </button>
-                </div>
+            
               </div>
             </div>
           </div>

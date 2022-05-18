@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+      };
     return (
         <div class="navbar bg-base-100">
             <div class="navbar-start">
@@ -20,12 +26,16 @@ const Navbar = () => {
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
-                    
+                    {user && <>
+                        <li><Link to='/todos'>todos</Link></li>
+                    </>}
                     
                 </ul>
             </div>
             <div class="navbar-end">
-                <a class="btn">Get started</a>
+             {
+                 user ?  <button className='btn' onClick={logout }>logout</button> : <Link to='/login'>Login</Link>
+             }
             </div>
         </div>
     );

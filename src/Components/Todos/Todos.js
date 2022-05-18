@@ -1,20 +1,38 @@
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Todos = () => {
     const [todos, setTodos] = useState([])
-    const [items, setItems] = useState([])
+    // const [active, setActive] = useState(false)
 
     useEffect(() => {
         fetch('http://localhost:4000/todos')
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 setTodos(data)
             })
 
 
     }, [])
 
+    const handleComplete=id=>{
+        // // console.log(id);
+        // setTodos(todos.map(item=>{
+        //     if(item._id===id){
+        //        return {
+        //            ...item, completed: !item.completed
 
+        //        }
+
+        //     // setActive(!active)
+        //     }console.log(todos);
+        //     return item
+            
+        // }))
+        toast.success('f')
+    }
 
     const handleDelete =(id)=>{
         const confirmDelete = window.confirm('wannna delete?')
@@ -37,16 +55,7 @@ const Todos = () => {
              
             })
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        }
+ }
       }
     return (
         <div>
@@ -75,11 +84,11 @@ const Todos = () => {
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Product name
+                  name
                 </th>
 
                 <th scope="col" className="px-6 py-3">
-                  supplier
+                  Description
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <span class="sr-only">Edit</span>
@@ -93,15 +102,15 @@ const Todos = () => {
                         return (
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                              {todo.data.todosTitle}
+                           <span>   {todo?.data?.todosTitle}</span>
                             </th>
       
       
                             <td className="px-6 py-4">
-                              {todo.data.description}
+                              {todo?.data?.description}
                             </td>
                             <td className="px-6 py-4 text-right">
-                               <button onClick={()=>handleDelete(todo._id)} class="btn btn-xs btn-success mx-4">completed</button>
+                               <button onClick={()=>handleComplete(todo._id)} class="btn btn-xs btn-success mx-4">completed</button>
                                <button onClick={()=>handleDelete(todo._id)} class="btn btn-xs btn-warning">Delete</button>
       
       
