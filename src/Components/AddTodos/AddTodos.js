@@ -28,18 +28,18 @@ const AddTodos = () => {
     return (
         <div className="">
                   Add todos
-            <div className='flex justify-center items-center'>
+            <div className=''>
 
-                <form className='text-center' onSubmit={handleSubmit(onSubmit)}>
+                <form className='' onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="form-control w-full">
+                    <div className="">
                         <label className="label">
                             <span className="label-text">Todo title</span>
                         </label>
                         <input
                             type="text"
                             placeholder="todo-title"
-                            className="input input-bordered w-full"
+                            className="shadow appearance-none border rounded w-4/12 py-2 px-3 mr-4 text-grey-darker"
                             {...register("todosTitle", {
                                 required: {
                                     value: true,
@@ -58,7 +58,8 @@ const AddTodos = () => {
                         <input
                             type="text"
                             placeholder="Description"
-                            className="input input-bordered w-full"
+                            className="shadow appearance-none border rounded w-4/12 py-2 px-3 mr-4 text-grey-darker"
+
                             {...register("description", {
                                 required: {
                                     value: true,
