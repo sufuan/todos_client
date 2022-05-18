@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 
 const AddTodos = () => {
@@ -9,7 +10,7 @@ const AddTodos = () => {
         console.log(data);
 
 
-        fetch('http://localhost:4000/addtodos', {
+        fetch('https://secure-woodland-29225.herokuapp.com/addtodos', {
             method: 'POST',
             body: JSON.stringify({
                 data: data
@@ -19,7 +20,10 @@ const AddTodos = () => {
             },
         })
             .then((response) => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                
+                toast.success('successfull added')
+            })
 
 
 

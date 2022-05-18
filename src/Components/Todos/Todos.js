@@ -7,7 +7,7 @@ const Todos = () => {
     // const [active, setActive] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:4000/todos')
+        fetch('https://secure-woodland-29225.herokuapp.com/todos')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -31,7 +31,7 @@ const Todos = () => {
         //     return item
             
         // }))
-        toast.success('f')
+        toast.success('successfull')
     }
 
     const handleDelete =(id)=>{
@@ -39,7 +39,7 @@ const Todos = () => {
         if (confirmDelete) {
           console.log(id);
     
-          const url = `http://localhost:4000/todos/${id}`
+          const url = `https://secure-woodland-29225.herokuapp.com/todos/${id}`
           fetch(url, {
             method: "DELETE",
     
